@@ -1,0 +1,6 @@
+awesome-git
+dxvk-bin
+phinger-cursors
+prismlauncher-qt5-bin
+proton-ge-custom-bin
+razergenie
