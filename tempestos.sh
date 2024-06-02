@@ -13,6 +13,13 @@
 # RUN THIS AT YOUR OWN RISK
 # SCRIPT IS SAFE, BUT WILL OVERWRITE YOUR DOTFILES
 
+# Globals
+#################################################
+official_extra="official_extra.txt"
+official_required="official_required.txt"
+aur_extra="aur_extra.txt"
+aur_required="aur_required.txt"
+
 # Functions
 #################################################
 
@@ -30,17 +37,18 @@ confirm_prompt() {
 }
 
 install_official_packages() {
-  official_packages_file="official_packages.txt"
+  official_packages_file="$1"
+  official_packages_type="$2"
   
   if [ -f "$official_packages_file" ]; then
     confirm_prompt "Install official Arch packages?"
     if [ $? -eq 1 ]; then
-      echo "Installing official packages..."
+      echo "Installing $official_packages_type official packages..."
       while IFS= read -r package || [ -n "$package" ]; do
         sudo pacman -S --needed --noconfirm "$package"
       done <"$official_packages_file"
     else
-      echo "Skipping official packages..."
+      echo "Skipping $official_packages_type official packages..."
     fi
   else
     echo "$official_packages_file not found"
@@ -50,12 +58,13 @@ install_official_packages() {
 }
 
 install_aur_packages() {
-  aur_packages_file="aur_packages.txt"
+  aur_packages_file="$1"
+  aur_packages_type="$2"
 
   if [ -f "$aur_packages_file" ]; then
     confirm_prompt "Install AUR packages?"
     if [ $? -eq 1 ]; then
-      echo "Installing AUR packages..."
+      echo "Installing $aur_packages_type AUR packages..."
       if ! command -v paru >/dev/null 2>&1; then
         echo "Installing paru AUR helper..."
         git clone https://aur.archlinux.org/paru-bin.git
@@ -70,7 +79,7 @@ install_aur_packages() {
         paru -S --needed --noconfirm "$package"
       done <"$aur_packages_file"
     else
-      echo "Skipping AUR packages..."
+      echo "Skipping $aur_packages_type AUR packages..."
     fi
   else
     echo "$aur_packages_file not found"
@@ -125,18 +134,31 @@ echo "Updating system and installing necessary packages..."
 sudo pacman -Syu --noconfirm
 sudo pacman -S --needed --noconfirm base-devel git
 
-# Install official packages
+# Install required official packages
 echo
-echo "1. Install official packages"
+echo "1. Install required official packages"
 echo "----------------------------"
-install_official_packages
+install_official_packages "$official_required" "required"
 
-# Install AUR packages
+# Install extra official packages
 echo
-echo "2. Install AUR packages"
+echo "1. Install extra official packages"
+echo "----------------------------"
+install_official_packages "$official_extra" "extra"
+
+# Install required AUR packages
+echo
+echo "2. Install required AUR packages"
 echo "----------------------------"
 echo
-install_aur_packages
+install_aur_packages "$aur_required" "required"
+
+# Install extra AUR packages
+echo
+echo "2. Install extra AUR packages"
+echo "----------------------------"
+echo
+install_aur_packages "$aur_extra" "extra"
 
 # Install dotfiles
 echo
