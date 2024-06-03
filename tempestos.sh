@@ -16,10 +16,10 @@
 # Globals
 #################################################
 
-arch_extra="arch_extra.txt"
-arch_required="arch_required.txt"
-aur_extra="aur_extra.txt"
-aur_required="aur_required.txt"
+arch_extra="packages/arch_extra.txt"
+arch_required="packages/arch_required.txt"
+aur_extra="packages/aur_extra.txt"
+aur_required="packages/aur_required.txt"
 
 # Functions
 #################################################
