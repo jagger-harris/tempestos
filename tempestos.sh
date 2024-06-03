@@ -9,14 +9,15 @@
 #                     | |
 #                     |_|
 #
-# TempestOS Arch Linux post-install script
+# TempestOS Arch Linux post-install script - No TUI edition
 # RUN THIS AT YOUR OWN RISK
 # SCRIPT IS SAFE, BUT WILL OVERWRITE YOUR DOTFILES
 
 # Globals
 #################################################
-official_extra="official_extra.txt"
-official_required="official_required.txt"
+
+arch_extra="arch_extra.txt"
+arch_required="arch_required.txt"
 aur_extra="aur_extra.txt"
 aur_required="aur_required.txt"
 
@@ -27,6 +28,7 @@ confirm_prompt() {
   prompt="$1"
   while true; do
     echo "$prompt (yes/no)"
+    echo -n "Answer: "
     read -r answer
     case "$answer" in
     [Yy] | [Yy][Ee][Ss]) return 1 ;;
@@ -36,22 +38,22 @@ confirm_prompt() {
   done
 }
 
-install_official_packages() {
-  official_packages_file="$1"
-  official_packages_type="$2"
+install_arch_packages() {
+  arch_packages_file="$1"
+  arch_packages_type="$2"
   
-  if [ -f "$official_packages_file" ]; then
-    confirm_prompt "Install official Arch packages?"
+  if [ -f "$arch_packages_file" ]; then
+    confirm_prompt "Install $2 Arch packages?"
     if [ $? -eq 1 ]; then
-      echo "Installing $official_packages_type official packages..."
+      echo "Installing $arch_packages_type arch packages..."
       while IFS= read -r package || [ -n "$package" ]; do
         sudo pacman -S --needed --noconfirm "$package"
-      done <"$official_packages_file"
+      done <"$arch_packages_file"
     else
-      echo "Skipping $official_packages_type official packages..."
+      echo "Skipping $arch_packages_type arch packages..."
     fi
   else
-    echo "$official_packages_file not found"
+    echo "$arch_packages_file not found"
     confirm_prompt "Continue installation?"
     [ $? -eq 1 ] || exit 0
   fi
@@ -109,6 +111,7 @@ install_dotfiles() {
 # Main script
 #################################################
 
+clear
 cat logo.txt
 echo
 echo "Welcome to the TempestOS Arch post-installation script!"
@@ -125,51 +128,81 @@ echo "However, it is recommended to answer (y/yes) to all of them."
 echo
 echo "Press ENTER to continue..."
 head -n 1 >/dev/null
+clear
 
 # Update system and install necessary packages
+cat logo.txt
+echo
 echo "0. Update system and install required packages"
-echo "----------------------------"
 echo
 echo "Updating system and installing necessary packages..."
+echo
 sudo pacman -Syu --noconfirm
 sudo pacman -S --needed --noconfirm base-devel git
+clear
 
-# Install required official packages
+# Install required arch packages
+cat logo.txt
 echo
-echo "1. Install required official packages"
-echo "----------------------------"
-install_official_packages "$official_required" "required"
+echo "1. Install required Arch packages"
+echo
+echo "**RECOMMENDED**"
+echo "**ANSWERING NO CAN LEAD TO AN UNSTABLE EXPERIENCE**"
+echo
+install_arch_packages "$arch_required" "required"
+clear
 
-# Install extra official packages
+# Install extra arch packages
+cat logo.txt
 echo
-echo "1. Install extra official packages"
-echo "----------------------------"
-install_official_packages "$official_extra" "extra"
+echo "1. Install extra Arch packages"
+echo
+echo "**RECOMMENDED**"
+echo "Not required for functionality, but recommonded for the full TempestOS experience."
+echo
+install_arch_packages "$arch_extra" "extra"
+clear
 
 # Install required AUR packages
+cat logo.txt
 echo
 echo "2. Install required AUR packages"
-echo "----------------------------"
+echo
+echo "**RECOMMENDED**"
+echo "**ANSWERING NO CAN LEAD TO AN UNSTABLE EXPERIENCE**"
 echo
 install_aur_packages "$aur_required" "required"
+clear
 
 # Install extra AUR packages
+cat logo.txt
 echo
 echo "2. Install extra AUR packages"
-echo "----------------------------"
+echo
+echo "**RECOMMENDED**"
+echo "Not required for functionality, but recommonded for the full TempestOS experience."
 echo
 install_aur_packages "$aur_extra" "extra"
+clear
 
 # Install dotfiles
+cat logo.txt
 echo
 echo "3. Clone TempestOS dotfiles"
-echo "----------------------------"
+echo
+echo "**RECOMMENDED**"
+echo "Not required for functionality, but recommonded for the full TempestOS experience."
 echo
 install_dotfiles
+clear
 
 # Completion
+cat logo.txt
 echo
 echo "4. Completion"
-echo "----------------------------"
 echo
 echo "TempestOS Arch post-installation script is completed!"
+echo
+echo "Press ENTER to exit..."
+head -n 1 >/dev/null
+clear
