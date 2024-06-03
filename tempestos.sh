@@ -9,7 +9,7 @@
 #                     | |
 #                     |_|
 #
-# TempestOS Arch Linux post-install script - No TUI edition
+# TempestOS Arch Linux post-install script
 # RUN THIS AT YOUR OWN RISK
 # SCRIPT IS SAFE, BUT WILL OVERWRITE YOUR DOTFILES
 
