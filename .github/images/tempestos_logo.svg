@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1466"
+   height="300"
+   viewBox="0 0 1466 300"
+   version="1.1"
+   id="svg1"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title
+     id="title16">TempestOS Logo</title>
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient15">
+      <stop
+         style="stop-color:#141933;stop-opacity:1;"
+         offset="0"
+         id="stop15" />
+      <stop
+         style="stop-color:#142633;stop-opacity:1;"
+         offset="1"
+         id="stop16" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient13">
+      <stop
+         style="stop-color:#141933;stop-opacity:1;"
+         offset="0"
+         id="stop13" />
+      <stop
+         style="stop-color:#142633;stop-opacity:1;"
+         offset="1"
+         id="stop14" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient11">
+      <stop
+         style="stop-color:#5163bd;stop-opacity:1;"
+         offset="0"
+         id="stop11" />
+      <stop
+         style="stop-color:#5193bd;stop-opacity:1;"
+         offset="1"
+         id="stop12" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient11"
+       id="linearGradient12"
+       x1="50.114799"
+       y1="250"
+       x2="449.88519"
+       y2="250"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-1e-6,-99.999997)" />
+    <linearGradient
+       xlink:href="#linearGradient13"
+       id="linearGradient14"
+       x1="50.000023"
+       y1="250"
+       x2="449.99997"
+       y2="250"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(1e-6,-100)" />
+    <linearGradient
+       xlink:href="#linearGradient15"
+       id="linearGradient16"
+       x1="50.114799"
+       y1="250"
+       x2="449.88519"
+       y2="250"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-1e-6,-99.999997)" />
+    <filter
+       style="color-interpolation-filters:sRGB"
+       id="filter2"
+       x="-0.013110731"
+       y="-0.072921731"
+       width="1.0316843"
+       height="1.1762275">
+      <feFlood
+         result="flood"
+         in="SourceGraphic"
+         flood-opacity="0.698039"
+         flood-color="rgb(0,0,0)"
+         id="feFlood1" />
+      <feGaussianBlur
+         result="blur"
+         in="SourceGraphic"
+         stdDeviation="5.000000"
+         id="feGaussianBlur1" />
+      <feOffset
+         result="offset"
+         in="blur"
+         dx="5.000000"
+         dy="5.000000"
+         id="feOffset1" />
+      <feComposite
+         result="comp1"
+         operator="in"
+         in="flood"
+         in2="offset"
+         id="feComposite1" />
+      <feComposite
+         result="comp2"
+         operator="over"
+         in="SourceGraphic"
+         in2="comp1"
+         id="feComposite2" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       id="filter4"
+       x="-0.048529941"
+       y="-0.10059376"
+       width="1.1098825"
+       height="1.2280492">
+      <feFlood
+         result="flood"
+         in="SourceGraphic"
+         flood-opacity="0.698039"
+         flood-color="rgb(0,0,0)"
+         id="feFlood2" />
+      <feGaussianBlur
+         result="blur"
+         in="SourceGraphic"
+         stdDeviation="5.000000"
+         id="feGaussianBlur2" />
+      <feOffset
+         result="offset"
+         in="blur"
+         dx="5.000000"
+         dy="5.000000"
+         id="feOffset2" />
+      <feComposite
+         result="comp1"
+         operator="in"
+         in="flood"
+         in2="offset"
+         id="feComposite3" />
+      <feComposite
+         result="comp2"
+         operator="over"
+         in="SourceGraphic"
+         in2="comp1"
+         id="feComposite4" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       id="filter6"
+       x="-0.048540473"
+       y="-0.10062942"
+       width="1.1095677"
+       height="1.2281574">
+      <feFlood
+         result="flood"
+         in="SourceGraphic"
+         flood-opacity="0.698039"
+         flood-color="rgb(0,0,0)"
+         id="feFlood4" />
+      <feGaussianBlur
+         result="blur"
+         in="SourceGraphic"
+         stdDeviation="5.000000"
+         id="feGaussianBlur4" />
+      <feOffset
+         result="offset"
+         in="blur"
+         dx="5.000000"
+         dy="5.000000"
+         id="feOffset4" />
+      <feComposite
+         result="comp1"
+         operator="in"
+         in="flood"
+         in2="offset"
+         id="feComposite5" />
+      <feComposite
+         result="comp2"
+         operator="over"
+         in="SourceGraphic"
+         in2="comp1"
+         id="feComposite6" />
+    </filter>
+  </defs>
+  <g
+     id="layer2">
+    <g
+       id="g6">
+      <path
+         id="path7"
+         style="display:inline;fill:url(#linearGradient12);fill-opacity:1;stroke:url(#linearGradient16);stroke-width:13.5163;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter6)"
+         d="m 270.73813,56.797543 c -19.70011,-0.12331 -39.43174,1.05708 -58.42815,3.56287 -93.44076,12.32566 -162.941418,59.541437 -130.136404,105.675877 3.28185,4.61534 7.76087,9.06388 13.19992,13.24652 L 56.8723,190.59153 c 2.083797,1.95363 4.29815,3.87501 6.641038,5.76058 51.847182,41.72712 170.736382,61.98879 259.535342,33.74739 19.5965,-6.23243 35.90816,-14.93017 47.3298,-24.80784 l 40.15955,10.36122 c 2.50276,-1.83818 4.88231,-3.71439 7.13202,-5.62563 49.78565,-42.29521 27.10363,-101.57049 -68.53678,-124.155907 -21.63001,-5.10791 -46.23431,-7.49795 -70.43587,-7.14124 l 0.47957,-21.80033 c -2.81077,-0.0708 -5.62456,-0.11461 -8.43884,-0.13223 z" />
+      <path
+         id="path4"
+         style="display:inline;fill:#0000ff;fill-opacity:0.0246432;stroke:url(#linearGradient14);stroke-width:13.5163;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter4)"
+         d="m 283.2365,150.74987 a 42.054605,20.073076 0 0 1 -42.05459,20.07308 42.054605,20.073076 0 0 1 -42.0546,-20.07308 42.054605,20.073076 0 0 1 42.0546,-20.07308 42.054605,20.073076 0 0 1 42.05459,20.07308 z m -74.85746,14.1578 C 157.09099,158.71791 149.72833,127.21982 171.27832,108.14088 209.36856,74.418285 305.12189,71.011615 367.14828,90.856605 453.0557,118.34221 464.48119,175.9198 410.42384,215.62292 M 252.86223,131.01218 c 40.54399,-16.97476 100.44084,-2.18495 122.13491,17.4915 37.90855,34.38293 -9.85213,74.84494 -79.96389,88.64941 C 203.4821,255.17881 100.10197,231.19748 56.758173,190.56117 M 281.45203,158.98748 c 27.77763,19.20408 -11.27537,42.48074 -50.11993,48.30731 C 159.07417,218.13328 90.526043,189.60768 76.928133,156.83709 56.647615,107.96165 139.92226,64.389075 238.23377,57.747415 c 13.51005,-0.91271 27.20411,-1.19037 40.82906,-0.8474" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:170px;line-height:0;font-family:storm;-inkscape-font-specification:storm;letter-spacing:0px;word-spacing:0px;fill:#5193bd;fill-opacity:1;stroke:none;stroke-width:13.516;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke;filter:url(#filter2)"
+         x="496.76999"
+         y="191.71143"
+         id="text1"><tspan
+           id="tspan1"
+           x="496.76999"
+           y="191.71143"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:170px;font-family:'Mustica Pro';-inkscape-font-specification:'Mustica Pro';letter-spacing:0px;fill:#6aa3c8;fill-opacity:1;stroke:none">TempestOS</tspan></text>
+    </g>
+  </g>
+  <metadata
+     id="metadata16">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>TempestOS Logo</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Jagger Harris</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>
