@@ -41,7 +41,7 @@ confirm_prompt() {
 install_arch_packages() {
   arch_packages_file="$1"
   arch_packages_type="$2"
-  
+
   if [ -f "$arch_packages_file" ]; then
     confirm_prompt "Install $2 Arch packages?"
     if [ $? -eq 1 ]; then
@@ -108,6 +108,22 @@ install_dotfiles() {
   fi
 }
 
+install_lightdm() {
+  echo "Press ENTER to continue..."
+  head -n 1 >/dev/null
+  sudo pacman -S --needed --noconfirm lightdm lightdm-gtk-greeter
+  sudo cp lightdm/lightdm.conf /etc/lightdm/
+  sudo chmod 644 /etc/lightdm/lightdm.conf
+  sudo chown -c root /etc/lightdm/lightdm.conf
+  sudo cp lightdm/lightdm-gtk-greeter.conf /etc/lightdm/
+  sudo chmod 644 /etc/lightdm/lightdm-gtk-greeter.conf
+  sudo chown -c root /etc/lightdm/lightdm-gtk-greeter.conf
+  sudo mkdir -p /usr/share/lightdm
+  sudo cp lightdm/blue_tempest.svg /usr/share/lightdm/
+  sudo chmod 644 /usr/share/lightdm/blue_tempest.svg
+  sudo chown -c root /usr/share/lightdm/blue_tempest.svg
+}
+
 # Main script
 #################################################
 
@@ -141,12 +157,20 @@ sudo pacman -Syu --noconfirm
 sudo pacman -S --needed --noconfirm base-devel git
 clear
 
+# Configure LightDM
+cat logo.txt
+echo
+echo "1. Install and Configure LightDM"
+echo
+install_lightdm
+clear
+
 # Install required arch packages
 cat logo.txt
 echo
-echo "1. Install required Arch packages"
+echo "2. Install required Arch packages"
 echo
-echo "**RECOMMENDED**"
+echo "**REQUIRED**"
 echo "**ANSWERING NO CAN LEAD TO AN UNSTABLE EXPERIENCE**"
 echo
 install_arch_packages "$arch_required" "required"
@@ -155,7 +179,7 @@ clear
 # Install extra arch packages
 cat logo.txt
 echo
-echo "1. Install extra Arch packages"
+echo "3. Install extra Arch packages"
 echo
 echo "**RECOMMENDED**"
 echo "Not required for functionality, but recommonded for the full TempestOS experience."
@@ -166,9 +190,9 @@ clear
 # Install required AUR packages
 cat logo.txt
 echo
-echo "2. Install required AUR packages"
+echo "4. Install required AUR packages"
 echo
-echo "**RECOMMENDED**"
+echo "**REQUIRED**"
 echo "**ANSWERING NO CAN LEAD TO AN UNSTABLE EXPERIENCE**"
 echo
 install_aur_packages "$aur_required" "required"
@@ -177,7 +201,7 @@ clear
 # Install extra AUR packages
 cat logo.txt
 echo
-echo "2. Install extra AUR packages"
+echo "5. Install extra AUR packages"
 echo
 echo "**RECOMMENDED**"
 echo "Not required for functionality, but recommonded for the full TempestOS experience."
@@ -188,7 +212,7 @@ clear
 # Install dotfiles
 cat logo.txt
 echo
-echo "3. Clone TempestOS dotfiles"
+echo "6. Clone TempestOS dotfiles"
 echo
 echo "**RECOMMENDED**"
 echo "Not required for functionality, but recommonded for the full TempestOS experience."
@@ -199,7 +223,7 @@ clear
 # Completion
 cat logo.txt
 echo
-echo "4. Completion"
+echo "7. Completion"
 echo
 echo "TempestOS Arch post-installation script is completed!"
 echo
