@@ -109,19 +109,31 @@ install_dotfiles() {
 }
 
 install_lightdm() {
-  echo "Press ENTER to continue..."
-  head -n 1 >/dev/null
-  sudo pacman -S --needed --noconfirm lightdm lightdm-gtk-greeter
-  sudo cp lightdm/lightdm.conf /etc/lightdm/
-  sudo chmod 644 /etc/lightdm/lightdm.conf
-  sudo chown -c root /etc/lightdm/lightdm.conf
-  sudo cp lightdm/lightdm-gtk-greeter.conf /etc/lightdm/
-  sudo chmod 644 /etc/lightdm/lightdm-gtk-greeter.conf
-  sudo chown -c root /etc/lightdm/lightdm-gtk-greeter.conf
-  sudo mkdir -p /usr/share/lightdm
-  sudo cp lightdm/blue_tempest.svg /usr/share/lightdm/
-  sudo chmod 644 /usr/share/lightdm/blue_tempest.svg
-  sudo chown -c root /usr/share/lightdm/blue_tempest.svg
+  confirm_prompt "Install LightDM?"
+  if [ $? -eq 1 ]; then
+    sudo pacman -S --needed --noconfirm lightdm lightdm-gtk-greeter
+    sudo cp system/lightdm/lightdm.conf /etc/lightdm/
+    sudo cp system/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/
+    sudo mkdir -p /usr/share/lightdm
+    sudo cp system/lightdm/blue_tempest.svg /usr/share/lightdm/
+    sudo chmod -R u+rwX,go+rX,go-w /etc/lightdm/
+    sudo chown -R -c root /etc/lightdm/
+    sudo chmod -R u+rwX,go+rX,go-w /usr/share/lightdm
+    sudo chown -R -c root /usr/share/lightdm
+  else
+    echo "Skipping LightDM..."
+  fi
+}
+
+install_gtk_theme() {
+  confirm_prompt "Install GTK theme?"
+  if [ $? -eq 1 ]; then
+    sudo cp -r system/themes/BlueSky-Clean-Dark /usr/share/themes/
+    sudo chmod -R u+rwX,go+rX,go-w /usr/share/themes/BlueSky-Clean-Dark
+    sudo chown -R -c root /usr/share/themes/BlueSky-Clean-Dark
+  else
+    echo "Skipping GTK theme..."
+  fi
 }
 
 # Main script
@@ -161,6 +173,9 @@ clear
 cat logo.txt
 echo
 echo "1. Install and Configure LightDM"
+echo
+echo "**REQUIRED**"
+echo "**ANSWERING NO CAN LEAD TO AN UNSTABLE EXPERIENCE**"
 echo
 install_lightdm
 clear
@@ -220,10 +235,21 @@ echo
 install_dotfiles
 clear
 
+# Install GTK theme
+cat logo.txt
+echo
+echo "7. Install GTK theme"
+echo
+echo "**RECOMMENDED**"
+echo "Not required for functionality, but recommonded for the full TempestOS experience."
+echo
+install_gtk_theme
+clear
+
 # Completion
 cat logo.txt
 echo
-echo "7. Completion"
+echo "8. Completion"
 echo
 echo "TempestOS Arch post-installation script is completed!"
 echo
