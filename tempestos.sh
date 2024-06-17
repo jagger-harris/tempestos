@@ -38,6 +38,17 @@ confirm_prompt() {
   done
 }
 
+install_system_config_files() {
+  confirm_prompt "Install system config files (/etc/pacman.conf, etc.)?"
+  if [ $? -eq 1 ]; then
+    sudo cp system/config/pacman.conf /etc/pacman.conf
+    sudo chmod -R u+rwX,go+rX,go-w /etc/pacman.conf
+    sudo chown -R -c root /etc/pacman.conf
+  else
+    echo "Skipping installing system config files..."
+  fi
+}
+
 install_arch_packages() {
   arch_packages_file="$1"
   arch_packages_type="$2"
@@ -169,10 +180,21 @@ sudo pacman -Syu --noconfirm
 sudo pacman -S --needed --noconfirm base-devel git
 clear
 
+# Install system config files
+cat logo.txt
+echo
+echo "1. Install system configuration files"
+echo
+echo "**REQUIRED**"
+echo "**ANSWERING NO CAN LEAD TO AN UNSTABLE EXPERIENCE**"
+echo
+install_system_config_files
+clear
+
 # Configure LightDM
 cat logo.txt
 echo
-echo "1. Install and Configure LightDM"
+echo "2. Install and Configure LightDM"
 echo
 echo "**REQUIRED**"
 echo "**ANSWERING NO CAN LEAD TO AN UNSTABLE EXPERIENCE**"
@@ -183,7 +205,7 @@ clear
 # Install required arch packages
 cat logo.txt
 echo
-echo "2. Install required Arch packages"
+echo "3. Install required Arch packages"
 echo
 echo "**REQUIRED**"
 echo "**ANSWERING NO CAN LEAD TO AN UNSTABLE EXPERIENCE**"
@@ -194,7 +216,7 @@ clear
 # Install extra arch packages
 cat logo.txt
 echo
-echo "3. Install extra Arch packages"
+echo "4. Install extra Arch packages"
 echo
 echo "**RECOMMENDED**"
 echo "Not required for functionality, but recommonded for the full TempestOS experience."
@@ -205,7 +227,7 @@ clear
 # Install required AUR packages
 cat logo.txt
 echo
-echo "4. Install required AUR packages"
+echo "5. Install required AUR packages"
 echo
 echo "**REQUIRED**"
 echo "**ANSWERING NO CAN LEAD TO AN UNSTABLE EXPERIENCE**"
@@ -216,7 +238,7 @@ clear
 # Install extra AUR packages
 cat logo.txt
 echo
-echo "5. Install extra AUR packages"
+echo "6. Install extra AUR packages"
 echo
 echo "**RECOMMENDED**"
 echo "Not required for functionality, but recommonded for the full TempestOS experience."
@@ -227,7 +249,7 @@ clear
 # Install dotfiles
 cat logo.txt
 echo
-echo "6. Clone TempestOS dotfiles"
+echo "7. Clone TempestOS dotfiles"
 echo
 echo "**RECOMMENDED**"
 echo "Not required for functionality, but recommonded for the full TempestOS experience."
