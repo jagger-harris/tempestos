@@ -10,7 +10,6 @@ deluge
 discord
 ext4magic
 fastfetch
-flameshot
 gamemode
 gamescope
 gedit

@@ -5,6 +5,7 @@ bash-completion
 bat
 exa
 firefox
+flameshot
 lxappearance
 lxsession
 mesa
